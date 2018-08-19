@@ -1,4 +1,4 @@
-package test;
+package pl.desz;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
