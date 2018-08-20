@@ -2,6 +2,7 @@ package pl.desz.repository;
 
 import pl.desz.model.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ public final class MockJobOfferRepository {
     }
 
     public static List<JobOffer> getAll() {
-        return (List<JobOffer>) OFFERS.values();
+        return new ArrayList<>(OFFERS.values());
     }
 
     public static JobOffer save(JobOffer newOffer) {
