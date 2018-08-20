@@ -1,8 +1,9 @@
 package pl.desz.controller;
 
-import pl.desz.JobOfferUtil;
 import pl.desz.model.JobOffer;
+import pl.desz.service.JobService;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,20 +11,20 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/jobs")
+@Produces(value = {MediaType.APPLICATION_JSON})
 public class JobController {
 
+    @Inject
+    private JobService jobService;
+
     @GET
-    @Produces(value = {MediaType.APPLICATION_JSON})
     public List<JobOffer> allJobs() {
-        return JobOfferUtil.createOffers(2);
+        return jobService.getAll();
     }
 
     @GET
     @Path("/1")
-    @Produces(value = {MediaType.APPLICATION_JSON})
     public JobOffer getFirstJob() {
-        return JobOfferUtil.createSingleOffer();
+        return jobService.getById("1");
     }
-
-
 }

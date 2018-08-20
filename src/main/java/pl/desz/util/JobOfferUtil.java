@@ -1,4 +1,4 @@
-package pl.desz;
+package pl.desz.util;
 
 import pl.desz.model.*;
 
