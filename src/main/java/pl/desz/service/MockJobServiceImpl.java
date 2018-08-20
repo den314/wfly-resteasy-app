@@ -18,4 +18,9 @@ public class MockJobServiceImpl implements JobService {
     public JobOffer getById(String id) {
         return MockJobOfferRepository.getById(id);
     }
+
+    @Override
+    public JobOffer add(JobOffer newOffer) {
+        return MockJobOfferRepository.save(newOffer);
+    }
 }

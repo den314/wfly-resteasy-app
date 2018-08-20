@@ -34,4 +34,9 @@ public final class MockJobOfferRepository {
     public static List<JobOffer> getAll() {
         return (List<JobOffer>) OFFERS.values();
     }
+
+    public static JobOffer save(JobOffer newOffer) {
+        OFFERS.put(newOffer.getId(), newOffer);
+        return newOffer;
+    }
 }

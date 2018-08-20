@@ -1,7 +1,9 @@
 package pl.desz.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class PhoneNumber {
 
     @Getter
