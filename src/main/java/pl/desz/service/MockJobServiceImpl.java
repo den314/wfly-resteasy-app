@@ -28,4 +28,14 @@ public class MockJobServiceImpl implements JobService {
     public JobOffer update(String id, JobOffer offer) {
         return MockJobOfferRepository.update(id, offer);
     }
+
+    @Override
+    public boolean delete(String id) {
+        return MockJobOfferRepository.delete(id);
+    }
+
+    @Override
+    public boolean delete(JobOffer offer) {
+        return MockJobOfferRepository.delete(offer);
+    }
 }

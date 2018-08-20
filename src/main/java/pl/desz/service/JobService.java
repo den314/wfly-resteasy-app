@@ -10,4 +10,6 @@ public interface JobService {
     JobOffer getById(String id);
     JobOffer add(JobOffer newOffer);
     JobOffer update(String id, JobOffer offer);
+    boolean delete(String id);
+    boolean delete(JobOffer offer);
 }

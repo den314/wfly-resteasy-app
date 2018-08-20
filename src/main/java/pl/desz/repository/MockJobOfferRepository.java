@@ -53,4 +53,20 @@ public final class MockJobOfferRepository {
         }
         return OFFERS.put(id, newOffer);
     }
+
+    /**
+     * @param id of the offer to delete
+     * @return true if deleted successfully, false if offer was not present in repository.
+     */
+    public static boolean delete(String id) {
+        return OFFERS.remove(id) != null;
+    }
+
+    /**
+     * @param offer to delete
+     * @return true if deleted successfully, false if offer was not present in repository.
+     */
+    public static boolean delete(JobOffer offer) {
+        return OFFERS.remove(offer.getId()) != null;
+    }
 }

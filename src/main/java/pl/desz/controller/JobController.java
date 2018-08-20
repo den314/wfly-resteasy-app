@@ -5,6 +5,7 @@ import pl.desz.service.JobService;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -54,5 +55,11 @@ public class JobController {
                 .entity(offer)
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response delete(@PathParam("id") String id) {
+        return jobService.delete(id) ? Response.ok().build() : Response.notModified().build();
     }
 }
