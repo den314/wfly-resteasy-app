@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -39,6 +40,18 @@ public class JobController {
 
         return Response.status(Response.Status.CREATED)
                 .entity(saved)
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateOffer(@PathParam("id") String id, JobOffer offer) {
+        jobService.update(id, offer);
+
+        return Response.status(Response.Status.CREATED)
+                .entity(offer)
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }

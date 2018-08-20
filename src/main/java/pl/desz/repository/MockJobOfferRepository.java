@@ -3,6 +3,7 @@ package pl.desz.repository;
 import pl.desz.exception.JobAlreadyExistsException;
 import pl.desz.model.*;
 
+import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,5 +45,12 @@ public final class MockJobOfferRepository {
         }
         OFFERS.put(id, newOffer);
         return newOffer;
+    }
+
+    public static JobOffer update(String id, JobOffer newOffer) {
+        if (!OFFERS.containsKey(id)) {
+            throw new NotFoundException("Not found job offer to update, does it exists?");
+        }
+        return OFFERS.put(id, newOffer);
     }
 }

@@ -9,4 +9,5 @@ public interface JobService {
     List<JobOffer> getAll();
     JobOffer getById(String id);
     JobOffer add(JobOffer newOffer);
+    JobOffer update(String id, JobOffer offer);
 }
