@@ -6,6 +6,7 @@ import pl.desz.service.JobService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -23,8 +24,8 @@ public class JobController {
     }
 
     @GET
-    @Path("/1")
-    public JobOffer getFirstJob() {
-        return jobService.getById("1");
+    @Path("{id}")
+    public JobOffer getFirstJob(@PathParam("id") String id) {
+        return jobService.getById(id);
     }
 }
