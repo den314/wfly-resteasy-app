@@ -1,5 +1,10 @@
 package pl.desz.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,7 +17,12 @@ public class JobOffer {
     private JobOfferOwner contact;
     private String industry;
     private boolean isArchived = false;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime postedDateTime = LocalDateTime.now();
+    
     private long applicationsCount = 0L;
     private JobDetails details;
 
