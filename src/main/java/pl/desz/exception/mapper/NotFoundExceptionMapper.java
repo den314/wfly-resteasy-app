@@ -1,4 +1,4 @@
-package pl.desz.exception;
+package pl.desz.exception.mapper;
 
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.MediaType;

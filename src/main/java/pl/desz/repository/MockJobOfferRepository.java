@@ -1,5 +1,6 @@
 package pl.desz.repository;
 
+import pl.desz.exception.JobAlreadyExistsException;
 import pl.desz.model.*;
 
 import java.util.ArrayList;
@@ -37,7 +38,11 @@ public final class MockJobOfferRepository {
     }
 
     public static JobOffer save(JobOffer newOffer) {
-        OFFERS.put(newOffer.getId(), newOffer);
+        final String id = newOffer.getId();
+        if (OFFERS.containsKey(id)) {
+            throw new JobAlreadyExistsException(id);
+        }
+        OFFERS.put(id, newOffer);
         return newOffer;
     }
 }
